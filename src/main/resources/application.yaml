@@ -1,0 +1,20 @@
+spring:
+    application:
+        name: seat-booking
+    datasource:
+        url: jdbc:mysql://localhost:3306/seatbooking
+        username: root
+        password: Sharvan623!@
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL8Dialect
+    data:
+        redis:
+            host: localhost
+            port: 6379
+server:
+  port: 8080
