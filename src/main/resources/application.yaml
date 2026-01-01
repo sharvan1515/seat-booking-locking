@@ -16,5 +16,30 @@ spring:
         redis:
             host: localhost
             port: 6379
+    kafka:
+        bootstrap-servers: localhost:9092
+        producer:
+            key-serializer: org.apache.kafka.common.serialization.StringSerializer
+            value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+        consumer:
+            group-id: seat-booking-group
+            auto-offset-reset: earliest
+            key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+            value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+            properties:
+                spring.json.trusted.packages: "*"
+
+    mail:
+        host: sandbox.smtp.mailtrap.io
+        port: 587
+        username: ff460b4f32e778
+        password: b67d50b8b1182a
+        properties:
+            mail:
+                smtp:
+                auth: true
+                starttls:
+                    enable: true
+
 server:
-  port: 8080
+  port: 8082

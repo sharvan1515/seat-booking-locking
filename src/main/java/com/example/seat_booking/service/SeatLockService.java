@@ -18,7 +18,7 @@ public class SeatLockService {
     public boolean lockSeat(Long seatId) {
 
         String key = "Seat:lock:" + seatId;
-        @SuppressWarnings("null")
+        
         Boolean success = redisTemplate.opsForValue().setIfAbsent(key, "LOCKED", Duration.ofSeconds(LOCK_TIME));
 
         return Boolean.TRUE.equals(success);
